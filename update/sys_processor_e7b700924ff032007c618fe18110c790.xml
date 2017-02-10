@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_processor">
+    <sys_processor action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <description>Calculate the attendance of a marketing event&#13;
+Example call&#13;
+https://dev13155.service-now.com/x_89842_marketing_getAttendance.do?x_89842_marketing_mrkevent=096a3f0e4f5432007c618fe18110c719&#13;
+Marketing event Dallas LUG has 4 attendees&#13;
+</description>
+        <interactive>false</interactive>
+        <name>getAttendance</name>
+        <parameters>mrkevent</parameters>
+        <params_endpoint>x_89842_marketing_mrkevent</params_endpoint>
+        <path>getAttendance</path>
+        <path_endpoint>x_89842_marketing_getAttendance</path_endpoint>
+        <require_csrf>false</require_csrf>
+        <roles/>
+        <script><![CDATA[(function process(g_request, g_response, g_processor) {
+
+	// Add your code here
+	g_response.setContentType('text/html;charset=UTF-8');
+
+	//Get Sys ID from URL parameter
+	var sid = g_request.getParameter('x_89842_marketing_mrkevent');
+
+	//Look up marketing event name from Sys ID
+	var gr = new GlideRecord('x_89842_marketing_marketing_event');
+	gr.get(sid);
+	var name = gr.name;
+
+	//Check ACLs before querying
+	if(gr.canRead()) {
+
+		var numOfAttendees = 0;
+		var attendees = new GlideAggregate('x_89842_marketing_attendee');
+		attendees.addQuery('marketing_event', sid);
+		attendees.addAggregate('COUNT');
+		attendees.query();
+		if(attendees.next())
+			numOfAttendees = attendees.getAggregate('COUNT');
+
+		g_processor.writeOutput('Marketing event ' + name + ' has ' + numOfAttendees + ' attendees');
+	} else {
+		g_processor.writeOutput('Access denied');
+	}
+
+})(g_request, g_response, g_processor);]]></script>
+        <sys_class_name>sys_processor</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-02-09 13:14:07</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>e7b700924ff032007c618fe18110c790</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>getAttendance</sys_name>
+        <sys_package display_value="Marketing Events Application" source="x_89842_marketing">7dd63a014fd032007c618fe18110c7af</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Marketing Events Application">7dd63a014fd032007c618fe18110c7af</sys_scope>
+        <sys_update_name>sys_processor_e7b700924ff032007c618fe18110c790</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-02-09 13:19:14</sys_updated_on>
+        <type>script</type>
+    </sys_processor>
+</record_update>

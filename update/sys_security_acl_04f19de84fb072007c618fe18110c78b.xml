@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl">
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Default access control on x_89842_marketing_attendee</description>
+        <name>x_89842_marketing_attendee</name>
+        <operation display_value="write">write</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-02-04 08:04:44</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>04f19de84fb072007c618fe18110c78b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_89842_marketing_attendee</sys_name>
+        <sys_package display_value="Marketing Events Application" source="x_89842_marketing">7dd63a014fd032007c618fe18110c7af</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Marketing Events Application">7dd63a014fd032007c618fe18110c7af</sys_scope>
+        <sys_update_name>sys_security_acl_04f19de84fb072007c618fe18110c78b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-02-04 08:04:44</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+</record_update>

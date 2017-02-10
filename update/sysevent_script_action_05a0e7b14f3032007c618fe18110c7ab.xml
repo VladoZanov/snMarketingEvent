@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sysevent_script_action">
+    <sysevent_script_action action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition_script/>
+        <description>typo da e syshtia script...samo imeto e razlichno removeAttendees... opravih taz nespravedlivost</description>
+        <event_name>x_89842_marketing.attendee.deleted</event_name>
+        <name>Remove attendee</name>
+        <order>100</order>
+        <script><![CDATA[(function removeAttendees() {
+	//Call the function under script include
+	vz_SetAttendeeCount_mEvent();
+}());]]></script>
+        <synchronous>false</synchronous>
+        <sys_class_name>sysevent_script_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-02-08 15:42:15</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>05a0e7b14f3032007c618fe18110c7ab</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Remove attendee</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Marketing Events Application" source="x_89842_marketing">7dd63a014fd032007c618fe18110c7af</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Marketing Events Application">7dd63a014fd032007c618fe18110c7af</sys_scope>
+        <sys_update_name>sysevent_script_action_05a0e7b14f3032007c618fe18110c7ab</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-02-08 16:04:31</sys_updated_on>
+    </sysevent_script_action>
+</record_update>
